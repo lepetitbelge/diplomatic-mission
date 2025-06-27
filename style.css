@@ -1,0 +1,127 @@
+/*  style.css  */
+:root {
+  --diplomatic-blue: #1b4f72;
+  --gold-accent:     #f1c40f;
+  --paper-white:     #fdfdfd;
+  --shadow:          rgba(0, 0, 0, 0.15);
+  --radius:          0.75rem;
+  --font-heading:    'Merriweather', serif;
+  --font-body:       'Montserrat', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--paper-white);
+  color: #222;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =====  HERO  ===== */
+.hero {
+  background: var(--diplomatic-blue);
+  color: white;
+  text-align: center;
+  padding: 3.5rem 1rem 2.75rem;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin: 0 0 0.25rem;
+  letter-spacing: 1px;
+}
+.hero h1 span {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+.tagline {
+  margin: 0;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* =====  TABLE  ===== */
+main {
+  width: min(95%, 60rem);
+  margin: -2.5rem auto 2rem;   /* pull table slightly into hero */
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px var(--shadow);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead tr {
+  background: var(--gold-accent);
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+th, td {
+  padding: 1rem 0.75rem;
+  vertical-align: top;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+tbody tr:hover {
+  background: #fff9e6;
+}
+
+td:first-child {      /* mission number */
+  font-weight: 700;
+  width: 2.5rem;
+  text-align: center;
+}
+
+td:nth-child(2) {     /* codename */
+  font-weight: 600;
+  white-space: nowrap;
+  width: 9rem;
+}
+
+strong {
+  color: var(--diplomatic-blue);
+}
+
+/* =====  FOOTER  ===== */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* =====  RESPONSIVE  ===== */
+@media (max-width: 560px) {
+  th:nth-child(3),
+  td:nth-child(3) {
+    font-size: 0.88rem;
+  }
+  th, td {
+    padding: 0.8rem 0.55rem;
+  }
+}
