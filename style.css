@@ -1,104 +1,109 @@
-/*  style.css  – “Sec-Ops” remake  */
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700&family=Inter:wght@400;500&display=swap');
+/*  style.css  – “Diplomatic Midnight” theme  */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
 
 /* ----------  DESIGN TOKENS  ---------- */
 :root {
-  --bg-main:      #0d0d0d;   /* near-black */
-  --bg-card:      #141414;   /* dark grey for panels */
-  --fg-main:      #e0e0e0;   /* light grey text */
-  --accent:       #00ff6e;   /* neon green */
-  --accent-dim:   #009f45;   /* darker for hover */
+  /* Colours */
+  --bg-main:      #0f1b28;   /* deep navy */
+  --bg-panel:     #162437;   /* slightly lighter navy for cards */
+  --fg-main:      #e8e9ec;   /* soft light-grey text */
+  --fg-muted:     #c3c5c9;   /* muted grey for secondary text */
+  --accent:       #caa85d;   /* understated brass / gold */
+  --accent-dark:  #9e8449;   /* darker variant for hover */
 
+  /* Effects */
+  --radius:       0.7rem;
   --shadow:       rgba(0,0,0,0.35);
-  --radius:       0.65rem;
 
-  --font-heading: 'Source Code Pro', monospace;
-  --font-body:    'Inter', sans-serif;
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body:    'Source Sans Pro', sans-serif;
 }
 
-/* Reset / globals */
+/* ----------  GLOBAL RESET  ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
 body {
   font-family: var(--font-body);
-  color: var(--fg-main);
   background: var(--bg-main);
+  color: var(--fg-main);
   display: flex;
   flex-direction: column;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-/* ----------  HERO  ---------- */
+/* ----------  HERO / HEADER  ---------- */
 .hero {
-  background: linear-gradient(135deg, #121212 30%, #1b1b1b 100%);
+  background: linear-gradient(145deg, #132033 0%, #0c1624 100%);
   text-align: center;
   padding: 4rem 1rem 3rem;
   box-shadow: 0 4px 12px var(--shadow);
 }
 .hero h1 {
   font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
   font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 3.8rem);
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.35rem;
   color: var(--accent);
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
 }
 .hero h1 span {
   display: block;
-  font-size: 0.45em;
-  font-weight: 600;
+  font-size: 0.5em;
+  font-weight: 400;
   color: var(--fg-main);
   opacity: 0.85;
   letter-spacing: 2px;
 }
 .tagline {
   margin: 0;
-  font-weight: 500;
-  opacity: 0.75;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--fg-muted);
 }
 
 /* ----------  MAIN CARD  ---------- */
 main {
   width: min(95%, 62rem);
-  margin: -2.8rem auto 2.5rem;
-  background: var(--bg-card);
-  border: 1px solid #1e1e1e;
+  margin: -2.6rem auto 2.75rem;  /* “pull” card into hero */
+  background: var(--bg-panel);
+  border: 1px solid #1e2d45;
   border-radius: var(--radius);
   box-shadow: 0 8px 22px var(--shadow);
   overflow-x: auto;
 }
 
-/* ----------  TABLE  ---------- */
+/* ----------  TABLE STYLING  ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.96rem;
+  font-size: 0.97rem;
 }
 thead tr {
-  background: #1a1a1a;
+  background: #1d3047;
   border-bottom: 2px solid var(--accent);
 }
 th, td {
   padding: 1rem 0.85rem;
   vertical-align: top;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #20324d;
 }
 th {
   font-family: var(--font-heading);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.45px;
   color: var(--accent);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
 }
-tbody tr:nth-child(even) { background: #101010; }
-tbody tr:hover        { background: #181818; }
+tbody tr:nth-child(even)   { background: #152232; }
+tbody tr:hover             { background: #1a2a3e; }
 tbody td:first-child {
+  font-family: var(--font-heading);
   font-weight: 700;
   text-align: center;
   width: 3rem;
   color: var(--accent);
-  font-family: var(--font-heading);
 }
 tbody td:nth-child(2) {
   font-weight: 600;
@@ -111,19 +116,19 @@ strong { color: var(--accent); }
 footer {
   margin-top: auto;
   text-align: center;
-  padding: 1.6rem 1rem 3rem;
+  padding: 1.8rem 1rem 3rem;
   font-style: italic;
   font-size: 0.9rem;
-  color: #aaa;
+  color: var(--fg-muted);
 }
 
-/* ----------  ACCESSIBILITY / LINKS  ---------- */
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; color: var(--accent-dim); }
+/* ----------  LINKS / INTERACTION  ---------- */
+a       { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-/* ----------  RESPONSIVE  ---------- */
+/* ----------  RESPONSIVE TWEAKS  ---------- */
 @media (max-width: 560px) {
   th:nth-child(3),
-  td:nth-child(3) { font-size: 0.88rem; }
-  th, td { padding: 0.85rem 0.6rem; }
+  td:nth-child(3) { font-size: 0.9rem; }
+  th, td          { padding: 0.9rem 0.65rem; }
 }
