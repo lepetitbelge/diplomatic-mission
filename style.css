@@ -87,6 +87,7 @@ th, td {
   padding: 1rem 0.85rem;
   vertical-align: top;
   border-bottom: 1px solid #20324d;
+  overflow-wrap: anywhere;   /* allow long text to break */
 }
 th {
   font-family: var(--font-heading);
